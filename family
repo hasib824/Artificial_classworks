@@ -1,0 +1,44 @@
+
+
+grandfather(X,Y):-
+	parent(Z,Y),
+	parent(X,Z).
+	
+brother(X,Y):-
+    parent(Z,X),
+    parent(Z,Y).
+
+/**
+uncle(X,Y):-
+	grandfather(Z,Y),
+	parent(Z,X).
+*/
+
+uncle(X,Y):-
+		parent(Z,Y),
+		parent(V,Z),
+		parent(V,X).
+		
+couple(X,Y):-
+	parent(X,Z),
+	male(X),
+	parent(Y,Z),
+	female(Y).
+		
+		
+parent(pam,bob).
+parent(tom,bob).
+parent(tom,liz).
+parent(bob,ann).
+parent(bob,pat).
+parent(pat,jim).
+parent(joe,jim).
+
+male(tom).
+male(bob).
+male(joe).
+male(jim).
+female(liz).
+female(ann).
+female(pam).
+female(pat).
